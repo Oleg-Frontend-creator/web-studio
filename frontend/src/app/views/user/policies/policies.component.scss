@@ -1,0 +1,40 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+div {
+  margin: 50px auto;
+  ul {
+    list-style: none;
+  }
+
+  p, li {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: $dark-blue-text-color;
+    line-height: 130%;
+    margin-bottom: 20px;
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 130%;
+    margin: 20px 0;
+    color: $light-blue-text-color;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+}

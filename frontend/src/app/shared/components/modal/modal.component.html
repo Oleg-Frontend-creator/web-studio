@@ -1,0 +1,58 @@
+<section class="modal-order">
+  <svg class="button-close" aria-label="Close" (click)="activeModal.close()"
+       width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="1.93562" y1="2.64999" x2="13.9564" y2="14.6708" stroke="#BEBEBE" stroke-linecap="round"/>
+    <line x1="13.9236" y1="2.62978" x2="1.90277" y2="14.6506" stroke="#BEBEBE" stroke-linecap="round"/>
+  </svg>
+  <div class="modal-body" *ngIf="serviceName">
+    <form class="modal-form" *ngIf="!isRequestSuccess">
+      <h2 class="modal-title">Заявка на услугу</h2>
+      <div class="input-group" [formGroup]="requestForm">
+        <select class="modal-input common-input" [selectedIndex]="selectedIndex">
+          <option value="Создание сайтов">Создание сайтов</option>
+          <option value="Продвижение">Продвижение</option>
+          <option value="Реклама">Реклама</option>
+          <option value="Копирайтинг">Копирайтинг</option>
+        </select>
+        <input type="text" class="modal-input common-input" placeholder="Ваше имя" formControlName="name"
+               [ngStyle]="{'border-color': requestForm.get('name')?.invalid
+                && (requestForm.get('name')?.dirty || requestForm.get('name')?.touched) ? 'red': ''}">
+        <input type="tel" class="modal-input common-input" placeholder="Ваш номер телефона" formControlName="phone"
+               mask="(000) 000-00-00" prefix="+7 " [dropSpecialCharacters]="false" [showMaskTyped]="true"
+               [ngStyle]="{'border-color': requestForm.get('phone')?.invalid
+                && (requestForm.get('phone')?.dirty || requestForm.get('phone')?.touched) ? 'red': ''}">
+      </div>
+      <button class="button" (click)="sendRequestOrder()" [disabled]="requestForm.invalid">Оставить заявку</button>
+      <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+    </form>
+    <div class="modal-success-block" *ngIf="isRequestSuccess">
+      <h2 class="modal-title">Спасибо за вашу заявку!</h2>
+      <p class="modal-text">Мы свяжемся с вами при первой же возможности.</p>
+      <button class="button" aria-label="Close" (click)="activeModal.close()">Окей</button>
+    </div>
+  </div>
+  <div class="modal-body" *ngIf="!serviceName">
+    <form class="modal-form" *ngIf="!isRequestSuccess">
+      <h2 class="modal-title">Закажите бесплатную консультацию!</h2>
+      <div class="input-group" [formGroup]="requestForm">
+        <input type="text" class="modal-input common-input" placeholder="Ваше имя" formControlName="name"
+               [ngStyle]="{'border-color': requestForm.get('name')?.invalid
+                && (requestForm.get('name')?.dirty || requestForm.get('name')?.touched) ? 'red': ''}">
+
+        <input type="text" class="modal-input common-input" placeholder="Ваш номер телефона" formControlName="phone"
+               mask="(000) 000-00-00" prefix="+7 " [dropSpecialCharacters]="false" [showMaskTyped]="true"
+               [ngStyle]="{'border-color': requestForm.get('phone')?.invalid
+                && (requestForm.get('phone')?.dirty || requestForm.get('phone')?.touched) ? 'red': ''}">
+
+      </div>
+      <button class="button" (click)="sendRequestConsultation()" [disabled]="requestForm.invalid">
+        Заказать консультацию
+      </button>
+    </form>
+    <div class="modal-success-block" *ngIf="isRequestSuccess">
+      <h2 class="modal-title">Спасибо за вашу заявку!</h2>
+      <p class="modal-text">Мы свяжемся с вами при первой же возможности.</p>
+      <button class="button" aria-label="Close" (click)="activeModal.close()">Окей</button>
+    </div>
+  </div>
+</section>

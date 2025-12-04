@@ -1,0 +1,75 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.header {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 40px;
+
+    .header-menu {
+
+      .menu-items {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+
+        .menu-item {
+          margin-right: 30px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          a {
+            @include montserrat-dark-blue-16;
+            font-weight: 500;
+            transition: 0.3s;
+            &.active {
+              color: $light-blue-text-color;
+            }
+            &:hover {
+              color: $light-blue-text-color;
+            }
+          }
+        }
+      }
+    }
+
+    .phone-block {
+      @include montserrat-light-blue-16;
+      font-weight: 500;
+    }
+
+    .login-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      svg {
+        margin-right: 7px;
+        path {
+          transition: all .2s;
+        }
+      }
+      span {
+        @include montserrat-dark-blue-16;
+        font-weight: 500;
+        transition: all .2s;
+      }
+
+      &:hover {
+        svg path {
+          stroke: $dark-purple-text-color-hover;
+        }
+        span {
+          color: $dark-purple-text-color-hover;
+        }
+      }
+    }
+  }
+}

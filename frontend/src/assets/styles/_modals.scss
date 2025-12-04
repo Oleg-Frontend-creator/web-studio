@@ -1,0 +1,84 @@
+.modal-dialog {
+  .modal-content {
+    width: 729px;
+    height: 489px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .button-close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+    }
+
+    .modal-body {
+      .button {
+        width: 422px;
+        padding: 15px 0;
+        font-size: 16px;
+        margin: 0 auto;
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: right;
+        padding: 30px 30px 32px 0;
+        border-bottom: none;
+
+        .button-close {
+          cursor: pointer;
+        }
+      }
+
+      .modal-form {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        .error-message {
+          margin-top: 25px;
+          color: red;
+        }
+      }
+
+      .modal-title {
+        @include lora-light-blue-38;
+        margin: 0 auto 20px auto;
+        max-width: 450px;
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+        justify-content: center;
+
+        .modal-input {
+          margin-bottom: 5px;
+          appearance: none;
+          -webkit-appearance: none;
+          background-image: none;
+        }
+      }
+
+      .modal-success-block {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+
+        .modal-text {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 500;
+          font-size: 14px;
+        }
+
+        .button {
+          width: 73px;
+          padding: 10px 0;
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+}

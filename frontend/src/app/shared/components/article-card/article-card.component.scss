@@ -1,0 +1,38 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.item {
+  height: 100%;
+
+  .item-content-article-category {
+    min-width: 89px;
+    border-radius: 5px;
+    padding: 10px 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    text-align: center;
+    color: $light-blue-text-color;
+    background-color: $white-text-color;
+    position: absolute;
+    top: 10px;
+    right: 9px;
+  }
+
+  .item-content-text {
+    margin-top: 20px;
+  }
+
+  .item-footer-ref {
+    @include montserrat-light-blue-16;
+    font-weight: 400;
+    border-bottom: 1px solid $light-blue-text-color;
+    line-height: 0.8;
+    margin-top: 15px;
+  }
+
+  &.detail-article {
+    height: 571px;
+    margin-bottom: 60px;
+  }
+}

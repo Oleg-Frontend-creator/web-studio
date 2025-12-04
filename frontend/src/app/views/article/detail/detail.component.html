@@ -1,0 +1,151 @@
+<div class="article container" *ngIf="article">
+  <nav class="breadcrumbs">
+    <a routerLink="/blog">Блог</a>
+    <span>/</span>
+    <span>{{ article.title }}</span>
+  </nav>
+  <div class="article-content">
+    <header class="article-content-header">
+      <div class="article-content-header-text">
+        <h1 class="article-title">{{ article.title }}</h1>
+        <p class="article-short-description">{{ article.description }}</p>
+      </div>
+      <div class="main-article-image" style="background-image: url('{{serverStaticPath + article.image}}')"></div>
+    </header>
+    <article class="article-content-main">
+      <div class="article-block">
+        <div class="article-content-text" [innerHTML]="article.text"></div>
+        <div class="article-content-footer">
+          <p class="footer-text">Понравилась статья? Поделитесь ею в своих социальных сетях!</p>
+          <div class="footer-block-socials">
+            <a href="https://vk.com/">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3.64461 0C1.64269 0 0 1.64269 0 3.64461V15.9979C0 17.9998 1.64269 19.6425 3.64461 19.6425H15.9979C17.9998 19.6425 19.6425 17.9998 19.6425 15.9979V3.64461C19.6425 1.64269 17.9998 0 15.9979 0H3.64461ZM3.64461 1.78569H15.9979C17.0338 1.78569 17.8568 2.60877 17.8568 3.64461V15.9979C17.8568 17.0338 17.0338 17.8568 15.9979 17.8568H3.64461C2.60877 17.8568 1.78569 17.0338 1.78569 15.9979V3.64461C1.78569 2.60877 2.60877 1.78569 3.64461 1.78569ZM9.57016 6.45567C8.91447 6.44869 8.35645 6.45567 8.04256 6.60913C7.8333 6.71027 7.67287 6.94046 7.77052 6.95092C7.89259 6.96836 8.16811 7.02765 8.3146 7.22644C8.50293 7.48104 8.49595 8.05651 8.49595 8.05651C8.49595 8.05651 8.60058 9.63991 8.24135 9.83871C7.99373 9.97473 7.65543 9.6992 6.92302 8.44015C6.54984 7.79145 6.26734 7.07647 6.26734 7.07647C6.26734 7.07647 6.21502 6.94394 6.11737 6.87419C5.99879 6.787 5.83487 6.7591 5.83487 6.7591L4.08754 6.76956C4.08754 6.76956 3.82597 6.78002 3.7318 6.89163C3.64461 6.99626 3.72483 7.20203 3.72483 7.20203C3.72483 7.20203 5.09199 10.4002 6.64052 12.0115C8.06 13.4903 9.6713 13.3926 9.6713 13.3926H10.4037C10.4037 13.3926 10.6234 13.3682 10.735 13.2496C10.8397 13.138 10.8362 12.9288 10.8362 12.9288C10.8362 12.9288 10.8222 11.9487 11.2756 11.8023C11.7255 11.6628 12.2975 12.7509 12.9079 13.1694C13.3717 13.4868 13.724 13.4171 13.724 13.4171L15.3562 13.3926C15.3562 13.3926 16.2072 13.3403 15.8026 12.6672C15.7712 12.6149 15.5689 12.172 14.5924 11.2652C13.567 10.3165 13.703 10.47 14.9377 8.82728C15.6875 7.82632 15.9875 7.21598 15.8933 6.95092C15.8026 6.70329 15.2516 6.76956 15.2516 6.76956L13.4136 6.78002C13.4136 6.78002 13.2775 6.76258 13.1764 6.82188C13.0787 6.88117 13.016 7.02067 13.016 7.02067C13.016 7.02067 12.723 7.79493 12.3359 8.4541C11.5198 9.84219 11.1884 9.91892 11.0559 9.83173C10.7455 9.62945 10.8222 9.02259 10.8222 8.59361C10.8222 7.24388 11.028 6.68586 10.4246 6.53937C10.2258 6.49055 10.0794 6.45916 9.57016 6.45567Z"
+                  fill="#709FDC"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_17_2177)">
+                  <path
+                    d="M5.95453 0.178284C2.78424 0.178284 0.178955 2.78008 0.178955 5.95386V14.0452C0.178955 17.2155 2.78075 19.8208 5.95453 19.8208H14.0459C17.2162 19.8208 19.8215 17.219 19.8215 14.0452V5.95386C19.8215 2.78357 17.2197 0.178284 14.0459 0.178284H5.95453ZM5.95453 1.96397H14.0459C16.2536 1.96397 18.0358 3.74617 18.0358 5.95386V14.0452C18.0358 16.2529 16.2536 18.0351 14.0459 18.0351H5.95453C3.74684 18.0351 1.96464 16.2529 1.96464 14.0452V5.95386C1.96464 3.74617 3.74684 1.96397 5.95453 1.96397ZM15.2736 3.91706C14.8237 3.91706 14.4644 4.27629 14.4644 4.7262C14.4644 5.17611 14.8237 5.53534 15.2736 5.53534C15.7235 5.53534 16.0827 5.17611 16.0827 4.7262C16.0827 4.27629 15.7235 3.91706 15.2736 3.91706ZM10.0002 4.6425C7.05315 4.6425 4.64317 7.05247 4.64317 9.99955C4.64317 12.9466 7.05315 15.3566 10.0002 15.3566C12.9473 15.3566 15.3573 12.9466 15.3573 9.99955C15.3573 7.05247 12.9473 4.6425 10.0002 4.6425ZM10.0002 6.42818C11.9847 6.42818 13.5716 8.01507 13.5716 9.99955C13.5716 11.984 11.9847 13.5709 10.0002 13.5709C8.01574 13.5709 6.42885 11.984 6.42885 9.99955C6.42885 8.01507 8.01574 6.42818 10.0002 6.42818Z"
+                    fill="#709FDC"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_17_2177">
+                    <rect width="19.9997" height="19.9997" fill="white"/>
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+            <a href="http://facebook.com/">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_17_2175)">
+                  <path
+                    d="M9.99984 0.000488281C4.48695 0.000488281 0 4.48744 0 10.0003C0 15.5132 4.48695 20.0002 9.99984 20.0002C15.5127 20.0002 19.9997 15.5132 19.9997 10.0003C19.9997 4.48744 15.5127 0.000488281 9.99984 0.000488281ZM9.99984 1.66713C14.612 1.66713 18.333 5.38816 18.333 10.0003C18.333 14.1897 15.2595 17.6346 11.2401 18.2326V12.4303H13.6131L13.9858 10.0199H11.2401V8.70315C11.2401 7.70233 11.5689 6.81353 12.5047 6.81353H14.0086V4.7107C13.7444 4.67487 13.1854 4.59677 12.1287 4.59677C9.92208 4.59677 8.62942 5.76174 8.62942 8.41669V10.0199H6.36057V12.4303H8.62942V18.2115C4.67397 17.5591 1.66664 14.1445 1.66664 10.0003C1.66664 5.38816 5.38767 1.66713 9.99984 1.66713Z"
+                    fill="#709FDC"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_17_2175">
+                    <rect width="20.0002" height="20" fill="white"/>
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="comments">
+          <header class="comments-header">
+            <h2 class="comment-header-title">Комментарии к статье</h2>
+            <p class="comment-header-text" *ngIf="!isLogged">
+              Чтобы оставлять комментарии, <a routerLink="/login">войдите</a> или
+              <a routerLink="/signup">зарегистрируйтесь</a>.
+            </p>
+            <div class="comment-actions" *ngIf="isLogged">
+              <textarea class="common-input comment-textarea" #textAreaElement
+                        placeholder="Напишите Ваш комментарий к статье..."></textarea>
+              <button class="button" (click)="addComment(textAreaElement)">Опубликовать комментарий</button>
+            </div>
+          </header>
+          <div class="comment-items" *ngIf="article.comments && article.comments.length > 0">
+            <div class="comment-item" *ngFor="let comment of commentsOnPage;">
+              <div class="user-info">
+                <div class="user-avatar">
+                  <img src="assets/images/details/user-avatar.png" alt="User avatar">
+                </div>
+                <div class="user-info-details">
+                  <div class="user-name">{{ comment.user.name }}</div>
+                  <div class="user-date">
+                    {{comment.date | date: 'dd.MM.yyyy HH:mm'}}
+                  </div>
+                </div>
+              </div>
+              <p class="comment-text">
+                {{ comment.text }}
+              </p>
+              <div class="comment-actions">
+                <div class="comment-action likes-block" >
+                  <span>{{ comment.likesCount }}</span>
+                  <svg [class.active]="comment.currentUserVote === 'like'"
+                       (click)="addAction(comment, CommentActionEnum.like)"
+                       width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M7.47998 18.35L10.58 20.75C10.98 21.15 11.88 21.35 12.48 21.35H16.28C17.48 21.35 18.78 20.45 19.08 19.25L21.48 11.95C21.98 10.55 21.08 9.34997 19.58 9.34997H15.58C14.98 9.34997 14.48 8.84997 14.58 8.14997L15.08 4.94997C15.28 4.04997 14.68 3.04997 13.78 2.74997C12.98 2.44997 11.98 2.84997 11.58 3.44997L7.47998 9.54997"
+                      stroke="#071739" stroke-width="1.5" stroke-miterlimit="10"/>
+                    <path
+                      d="M2.37988 18.35V8.55002C2.37988 7.15002 2.97988 6.65002 4.37988 6.65002H5.37988C6.77988 6.65002 7.37988 7.15002 7.37988 8.55002V18.35C7.37988 19.75 6.77988 20.25 5.37988 20.25H4.37988C2.97988 20.25 2.37988 19.75 2.37988 18.35Z"
+                      stroke="#071739" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="comment-action dislikes-block">
+                  <span>{{ comment.dislikesCount }}</span>
+                  <svg [class.active]="comment.currentUserVote === 'dislike'"
+                       (click)="addAction(comment, CommentActionEnum.dislike)"
+                       width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M16.5197 5.65002L13.4197 3.25002C13.0197 2.85002 12.1197 2.65002 11.5197 2.65002H7.71973C6.51973 2.65002 5.21973 3.55002 4.91973 4.75002L2.51973 12.05C2.01973 13.45 2.91973 14.65 4.41973 14.65H8.41973C9.01973 14.65 9.51973 15.15 9.41973 15.85L8.91973 19.05C8.71973 19.95 9.31973 20.95 10.2197 21.25C11.0197 21.55 12.0197 21.15 12.4197 20.55L16.5197 14.45"
+                      stroke="#071739" stroke-width="1.5" stroke-miterlimit="10"/>
+                    <path
+                      d="M21.6201 5.65V15.45C21.6201 16.85 21.0201 17.35 19.6201 17.35H18.6201C17.2201 17.35 16.6201 16.85 16.6201 15.45V5.65C16.6201 4.25 17.2201 3.75 18.6201 3.75H19.6201C21.0201 3.75 21.6201 4.25 21.6201 5.65Z"
+                      stroke="#071739" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="comment-action violate-block">
+                  <svg [class.active]="comment.currentUserCommentViolation"
+                       (click)="addAction(comment, CommentActionEnum.violate)"
+                       width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+                          stroke="#071739" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 8V13" stroke="#071739" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                    <path d="M11.9946 16H12.0036" stroke="#071739" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="comment-load-more"
+               *ngIf="(article.commentsCount && article.commentsCount > 3) && commentsOffsetCount !== article.commentsCount"
+               (click)="loadComments()">
+            <span>Загрузить ещё комментарии</span>
+            <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7.22292 7.16458C6.63958 7.16458 6.05625 6.93958 5.61458 6.49792L0.18125 1.06458C-0.0604167 0.822916 -0.0604167 0.422917 0.18125 0.18125C0.422917 -0.0604167 0.822917 -0.0604167 1.06458 0.18125L6.49792 5.61458C6.89792 6.01458 7.54792 6.01458 7.94792 5.61458L13.3812 0.18125C13.6229 -0.0604167 14.0229 -0.0604167 14.2646 0.18125C14.5062 0.422917 14.5062 0.822916 14.2646 1.06458L8.83125 6.49792C8.38958 6.93958 7.80625 7.16458 7.22292 7.16458Z"
+                fill="#709FDC"/>
+            </svg>
+          </div>
+          <div class="article-without-comments" *ngIf="!article.commentsCount">
+            Комментариев пока нет.
+          </div>
+        </div>
+      </div>
+      <aside class="read-more">
+        <h2 class="read-more-title">Читайте также:</h2>
+        <article-card *ngFor="let relatedArticle of relatedArticles"
+                      [article]="relatedArticle" [articleClass]="true"></article-card>
+      </aside>
+    </article>
+  </div>
+</div>

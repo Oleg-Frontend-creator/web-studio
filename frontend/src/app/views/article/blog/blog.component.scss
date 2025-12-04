@@ -1,0 +1,180 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.blog {
+  margin-top: 120px;
+
+  .container {
+
+    .blog-title {
+      @include lora-light-blue-38;
+    }
+
+    .blog-actions {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+
+      .category-applied-filters {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+
+        .category-applied-filter {
+          border-radius: 5px;
+          border: 2px solid $light-blue-text-color;
+          padding: 8px 20px;
+          @include montserrat-light-blue-16;
+          font-weight: 400;
+          display: flex;
+          align-items: center;
+          transition: all .3s;
+          margin-right: 10px;
+          margin-bottom: 10px;
+
+          span {
+            margin-right: 8px;
+          }
+
+          svg {
+            cursor: pointer;
+          }
+
+          &:hover {
+            background-color: $light-blue-text-color;
+            color: white;
+
+            svg line {
+              stroke: white;
+            }
+          }
+        }
+      }
+
+      .category-dropdown {
+        position: relative;
+
+        .category-dropdown-body {
+          position: absolute;
+          width: 100%;
+          display: none;
+          padding: 3px 21px;
+          border: 2px solid #B9D5FD;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          box-sizing: border-box;
+          background-color: white;
+          z-index: 9;
+
+          .category-dropdown-item {
+            margin: 12px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+
+            span:first-child {
+              font-family: 'Montserrat', sans-serif;
+              font-weight: 400;
+              font-size: 16px;
+              color: #BEBEBE;
+              transition: all .3s;
+            }
+
+            span:last-child {
+              font-family: 'Montserrat', sans-serif;
+              font-weight: 400;
+              font-size: 24px;
+              color: #BEBEBE;
+              width: 15px;
+              transition: all .3s;
+            }
+
+            &.active, &:hover {
+              span {
+                color: $dark-blue-text-color;
+              }
+            }
+          }
+        }
+
+        .category-dropdown-head {
+          @include montserrat-dark-blue-16;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          padding: 10px 21px;
+
+          span {
+            margin-right: 45px;
+          }
+        }
+
+        &.open {
+          .category-dropdown-body {
+            display: block;
+          }
+
+          .category-dropdown-head {
+            background-color: #B9D5FD;
+            border: 2px solid #B9D5FD;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            box-sizing: border-box;
+
+            span {
+              margin-right: 75px;
+            }
+          }
+        }
+      }
+    }
+
+    .articles .articles-items {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px 24px;
+      margin-top: 40px;
+      margin-bottom: 74px;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 134px;
+
+      .pagination-arrow {
+        display: flex;
+        align-items: center;
+        &:first-child {
+          margin-right: 50px;
+        }
+        &:last-child {
+          margin-left: 10px;
+        }
+
+        svg.active {
+          cursor: pointer;
+        }
+      }
+
+      .pagination-page {
+        margin-right: 40px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        color: $dark-blue-text-color;
+        cursor: pointer;
+        transition: all .3s;
+
+        &.active, &:hover {
+          color: #B9D5FD;
+        }
+      }
+    }
+  }
+}
+

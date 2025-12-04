@@ -1,0 +1,386 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/mixins";
+
+.main-offer {
+  margin-top: 40px;
+
+  .container {
+    position: relative;
+
+    .hero-item {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding-left: 80px;
+      margin: auto 0;
+      box-sizing: border-box;
+      width: 100%;
+      padding-top: 100px;
+      height: 500px;
+
+      .hero-item-ellipse-img {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 700px;
+        height: 100%;
+      }
+
+      .hero-item-main-img {
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 750px;
+        height: 100%;
+      }
+
+      .hero-content {
+        z-index: 2;
+        position: relative;
+
+        .hero-item-subtitle {
+          @include montserrat-light-blue-12;
+          font-weight: 600;
+          letter-spacing: 7px;
+          text-transform: uppercase;
+        }
+
+        .hero-item-title {
+          font-family: 'Lora', sans-serif;
+          font-weight: 400;
+          font-size: 50px;
+          color: #ffffff;
+          max-width: 610px;
+          margin-bottom: 40px;
+
+          span {
+            color: $light-blue-text-color;
+          }
+        }
+
+        .hero-item-offer {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 130%;
+          color: #ffffff;
+          margin-bottom: 50px;
+          max-width: 456px;
+        }
+
+        .hero-item-button {
+          padding: 15px 33px;
+          font-weight: 400;
+          font-size: 16px;
+        }
+      }
+
+    }
+
+    .prev-arrow {
+      top: 236px;
+      left: 25px;
+    }
+
+    .next-arrow {
+      top: 236px;
+      right: 25px;
+    }
+  }
+}
+
+.service {
+  margin-top: 120px;
+
+  .container {
+    .service-title {
+      @include lora-light-blue-38;
+    }
+
+    .service-items {
+      display: flex;
+      margin-top: 40px;
+
+      .item {
+        margin-right: 26px;
+        height: 498px;
+
+        .item-content-text {
+          margin-top: 10px;
+        }
+
+        .item-footer {
+          .item-footer-price {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            color: $light-blue-text-color;
+            margin-right: 21px;
+          }
+
+          .item-footer-button {
+            padding: 15px 33px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.about-us {
+  margin-top: 120px;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .about-us-content {
+      margin-left: 68px;
+
+      .about-us-content-title {
+        font-family: 'Lora', sans-serif;
+        font-weight: 400;
+        font-size: 38px;
+        color: $light-blue-text-color;
+        margin-bottom: 20px;
+
+      }
+
+      .about-us-content-text {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 130%;
+        color: $dark-purple-text-color;
+        max-width: 633px;
+        margin-bottom: 40px;
+
+        span {
+          font-weight: 500;
+        }
+      }
+
+      .about-us-content-subtitle {
+        font-family: 'Lora', sans-serif;
+        font-weight: 400;
+        font-size: 26px;
+        color: $light-blue-text-color;
+        margin-bottom: 20px;
+      }
+
+      .about-us-advantage-items {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 71px;
+
+        .advantage-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .advantage-item-number {
+            margin-right: 20px;
+
+            div {
+              position: relative;
+              display: block;
+              width: 40px;
+              height: 40px;
+              background-color: #B9D5FD;
+              border-radius: 50%;
+
+              span {
+                width: 28px;
+                position: absolute;
+                bottom: 2px;
+                left: 6px;
+                text-align: center;
+                line-height: 1;
+                font-family: 'Lora', sans-serif;
+                font-weight: 500;
+                font-size: 50px;
+                color: $light-blue-text-color;
+              }
+            }
+
+          }
+
+          .advantage-item-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 130%;
+            color: $dark-blue-text-color;
+
+            span {
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.popular-articles {
+  margin-top: 120px;
+
+  .container {
+    .popular-articles-title {
+      @include lora-light-blue-38;
+      margin-bottom: 40px;
+    }
+
+    .popular-articles-items {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .popular-articles-read-more {
+      display: flex;
+      align-items: center;
+      justify-content: right;
+
+      span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        color: $light-blue-text-color;
+        border-bottom: 1px solid transparent;
+        transition: all .3s;
+        margin-right: 14px;
+      }
+
+      &:hover span {
+        border-bottom-color: $light-blue-text-color;
+      }
+    }
+  }
+}
+
+.reviews {
+  margin-top: 120px;
+
+  .container {
+    position: relative;
+
+    .reviews-title {
+      @include lora-light-blue-38;
+      margin-bottom: 20px;
+    }
+
+    .review-item {
+      border: 2px solid $light-blue-text-color;
+      border-radius: 5px;
+      height: 267px;
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      box-sizing: border-box;
+
+      .review-item-header {
+        display: flex;
+        align-items: center;
+
+        .user-image {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          margin-right: 26px;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+
+        .user-name {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 600;
+          font-size: 18px;
+          color: $light-blue-text-color;
+        }
+      }
+
+      .review-item-text {
+        @include montserrat-dark-blue-16;
+        font-weight: 400;
+        line-height: 140%;
+        margin-top: 15px;
+      }
+    }
+
+    .prev-arrow {
+      left: -25px;
+      top: 187px;
+    }
+
+    .next-arrow {
+      right: -25px;
+      top: 187px;
+    }
+  }
+}
+
+.contacts {
+  margin: 120px 0;
+
+  .container {
+    display: flex;
+
+    .contacts-content {
+      margin-left: 26px;
+
+      .contacts-content-title {
+        @include lora-light-blue-38;
+      }
+
+      .contacts-content-items {
+        .contacts-content-item {
+          margin-top: 20px;
+          max-width: 500px;
+
+          .contacts-content-item-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 20px;
+            color: $light-blue-text-color;
+          }
+
+          .contact-content-item-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 130%;
+            color: $dark-blue-text-color;
+            margin-top: 10px;
+            transition: all .3s;
+
+            &:hover {
+              color: $light-blue-text-color;
+            }
+          }
+
+          .contact-content-item-socials {
+            margin-top: 10px;
+
+            svg {
+              margin-right: 20px;
+
+              path {
+                transition: fill .3s;
+              }
+
+              &:hover path {
+                fill: $light-blue-text-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

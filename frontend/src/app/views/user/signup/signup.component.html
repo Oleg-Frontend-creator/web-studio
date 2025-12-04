@@ -1,0 +1,41 @@
+<section class="signup" [formGroup]="signupForm">
+  <div class="container">
+    <div class="auth-form">
+      <h2 class="auth-title">
+        Регистрация на сайте
+      </h2>
+      <div class="auth-inputs">
+        <input type="text" class="auth-input common-input"
+               [ngStyle]="{'border-color': signupForm.get('name')!.invalid &&
+                 (signupForm.get('name')!.dirty || signupForm.get('name')!.touched) ? 'red':''}"
+               placeholder="Ваше имя" formControlName="name">
+        <input type="text" class="auth-input common-input"
+               [ngStyle]="{'border-color': signupForm.get('email')!.invalid &&
+                 (signupForm.get('email')!.dirty || signupForm.get('email')!.touched) ? 'red':''}"
+               placeholder="Электронная почта" formControlName="email">
+        <input type="password" class="auth-input common-input"
+               [ngStyle]="{'border-color': signupForm.get('password')!.invalid &&
+                 (signupForm.get('password')!.dirty || signupForm.get('password')!.touched) ? 'red':''}"
+               placeholder="Пароль" formControlName="password">
+        <div class="auth-checkbox">
+          <input type="checkbox" id="agree" formControlName="agree">
+          <label for="agree">
+            Я принимаю <a routerLink="/policies" fragment="user-agreement">условия пользовательского соглашения</a>
+            и даю <a routerLink="/policies" fragment="personal-data-agreement">согласие на обработку персональных данных</a>.
+          </label>
+        </div>
+      </div>
+      <div class="auth-actions">
+        <button class="button auth-button" [disabled]="signupForm.invalid" (click)="signup()">Зарегистрироваться</button>
+        <div class="auth-link">
+          Уже есть аккаунт? <a routerLink="/login">Войдите</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-image">
+      <img src="assets/images/user/signup.png" alt="Signup page">
+    </div>
+  </div>
+</section>
+
