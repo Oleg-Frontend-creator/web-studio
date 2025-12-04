@@ -49,7 +49,6 @@ export class SignupComponent {
             }
             //set tokens
             this.authService.setTokens(signupResponse.accessToken, signupResponse.refreshToken);
-            this.authService.userId = signupResponse.userId;
 
             //add username to header
             this.userService.getUserInfo().subscribe((data: UserInfoType | DefaultResponseType) => {

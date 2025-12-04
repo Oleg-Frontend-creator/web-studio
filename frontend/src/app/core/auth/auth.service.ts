@@ -12,7 +12,6 @@ import {UserInfoType} from "../../../types/user-info.type";
 export class AuthService {
   public accessTokenKey: string = 'accessToken';
   public refreshTokenKey: string = 'refreshToken';
-  public userIdKey: string = 'userId';
 
   public isLogged$: Subject<boolean> = new Subject<boolean>();
   private isLogged: boolean = false;
@@ -107,13 +106,5 @@ export class AuthService {
         email: localStorage.getItem('email') ? localStorage.getItem('email') as string : '',
       }; else
       return null;
-  }
-
-  set userId(id: string | null) {
-    if (id) {
-      localStorage.setItem(this.userIdKey, id);
-    } else {
-      localStorage.removeItem(this.userIdKey);
-    }
   }
 }

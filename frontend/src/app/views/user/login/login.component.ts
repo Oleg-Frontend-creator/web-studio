@@ -50,7 +50,6 @@ export class LoginComponent {
             }
             //set tokens
             this.authService.setTokens(loginResponse.accessToken, loginResponse.refreshToken);
-            this.authService.userId = loginResponse.userId;
 
             //add username to header
             this.userService.getUserInfo().subscribe((data: UserInfoType | DefaultResponseType) => {
