@@ -25,14 +25,24 @@ MongoDBConnection.getConnection((error, connection) => {
         'https://frontend-v0k7.onrender.com/',
         'http://localhost:4200'
     ];
+    app.use((req, res, next) => {
+        console.log("Origin:", req.headers.origin);
+        next();
+    });
+
     app.use(cors({
-        origin: allowedOrigins,
-        credentials: true
+        origin(origin, callback) {
+            if(!origin || allowedOrigins.includes(origin)) {
+                callback(null, true);
+            } else {
+                callback(new Error('Not allowes by CORS'));
+            }
+        },
+        credentials: true,
+        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization']
     }));
-    app.options('*', cors({
-        origin: allowedOrigins,
-        credentials: true
-    }));
+    app.options('*', cors());
 
     app.use(express.static(path.join(__dirname, 'public')));
     app.use(express.json());
