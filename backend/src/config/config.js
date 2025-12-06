@@ -1,12 +1,9 @@
 const config = {
     secret: '9238fSf9fAKckj332Knaksnf9012ADSN',
     env: process.env.ENV,
-    port: 3000,
+    port: process.env.PORT | 3000,
     db: {
-        dbUrl: 'mongodb://127.0.0.1:27017',
-        dbName: 'diploma',
-        dbHost: 'localhost',
-        dbPort: 27017,
+        dbUrl:  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/diploma'
     },
     userCommentActions: {
         like: 'like',

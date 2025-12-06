@@ -21,9 +21,21 @@ MongoDBConnection.getConnection((error, connection) => {
     }
     const app = express();
 
+    const allowedOrigins = [
+        '',
+        'http://localhost:4200'
+    ];
+    app.use(cors({
+        origin: allowedOrigins,
+        credentials: true
+    }));
+    app.options('*', cors({
+        origin: allowedOrigins,
+        credentials: true
+    }));
+
     app.use(express.static(path.join(__dirname, 'public')));
     app.use(express.json());
-    app.use(cors());
 
     passport.use(new JwtStrategy({
         jwtFromRequest: ExtractJwt.fromHeader('x-auth'),
