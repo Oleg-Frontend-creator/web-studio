@@ -22,7 +22,7 @@ MongoDBConnection.getConnection((error, connection) => {
     const app = express();
 
     const allowedOrigins = [
-        'https://web-studio-0syo.onrender.com',
+        'https://frontend-v0k7.onrender.com/',
         'http://localhost:4200'
     ];
     app.use(cors({
