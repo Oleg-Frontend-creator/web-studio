@@ -22,7 +22,7 @@ MongoDBConnection.getConnection((error, connection) => {
     const app = express();
 
     const allowedOrigins = [
-        'https://frontend-v0k7.onrender.com/',
+        'https://frontend-v0k7.onrender.com',
         'http://localhost:4200'
     ];
     app.use((req, res, next) => {
